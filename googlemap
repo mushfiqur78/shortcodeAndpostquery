@@ -1,0 +1,16 @@
+function mapshortcode($atts){
+	$default = array(
+		'width'	=> 1920,
+		'height'	=> 400,
+		'place'		=> 'Banani'
+	); 
+	$param = shortcode_atts($default, $atts);
+	$map = <<<EOD
+		<div class="contact-location-map">
+			<iframe src="https://maps.google.com/maps?q={$param['place']},+Dhaka/@23.8062764,90.3460622,15z&t=&z=17&output=embed" width="{$param['width']}" height="{$param['height']}" frameborder="0" style="border:0"></iframe>
+		</div>
+		EOD;
+	return $map;
+
+}
+add_shortcode('googlemap', 'mapshortcode');
