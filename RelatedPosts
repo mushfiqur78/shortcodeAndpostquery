@@ -1,0 +1,28 @@
+<div class="related-post">
+		<?php 
+			$bti_rp = null;
+			$related_posts = get_field("related_posts");
+			$bti_rp = new WP_Query(array(
+				'post__in' => $related_posts,
+				'orderby' => 'post__in'
+				
+			));
+			if( $bti_rp->have_posts() ){
+				while($bti_rp->have_posts() ){
+					$bti_rp->the_post();
+					?>
+					<div class="properties">
+						<div class="properties">
+							<?php the_post_thumbnail(); ?>
+						</div>
+						 <?php the_title( '<h4><a href="' . esc_url( get_permalink() ) . '">', '</a></h4>' );
+							?>
+					</div>  
+			<?php }
+				wp_reset_postdata();
+			}else{
+				echo 'No post';
+			}
+			
+		?>
+	</div>
