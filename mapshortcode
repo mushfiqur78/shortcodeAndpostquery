@@ -7,15 +7,84 @@ function dexpress_map_shortcode($atts, $content=null){
         'place'   => 'Gushan'
 	),$atts));
 	ob_start(); ?>
-        
-       <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-     Property
-    </button>
-	<!-- Button school trigger modal -->
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#schoolModal">
-	 Scholl
-	</button>
+      
+	  
+	 <div class="btn-area d-flex">
+		<div class="mapbtn">
+			<a data-toggle="modal" data-target="#exampleModal">
+				<div class="btnimg">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/location.png" alt="btn image" />
+				</div>
+				<!-- Button trigger modal -->
+				<div class="btndiv">
+					<span>Property</span>
+				</div>
+			</a>
+		</div>
+		<div class="mapbtn">
+			<a data-toggle="modal" data-target="#schoolModal">
+				<div class="btnimg">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/school.png" alt="btn image" />
+				</div>
+				<!-- Button trigger modal -->
+				<div class="btndiv">
+					<span>School</span>
+				</div>
+			</a>
+		</div>
+		
+		<div class="mapbtn">
+			<a data-toggle="modal" data-target="#restaurantsModal">
+				<div class="btnimg">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/restaurant.png" alt="btn image" />
+				</div>
+				<!-- Button trigger modal -->
+				<div class="btndiv">
+					<span>Restaurants</span>
+				</div>
+			</a>
+		</div>
+		<div class="mapbtn">
+			<a data-toggle="modal" data-target="#parkModal">
+				<div class="btnimg">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/park.png" alt="btn image" />
+				</div>
+				<!-- Button trigger modal -->
+				<div class="btndiv">
+					<span>Park</span>
+				</div>
+			</a>
+		</div>
+		<div class="mapbtn">
+			<a data-toggle="modal" data-target="#hospitalModal">
+				<div class="btnimg">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/hospital.png" alt="btn image" />
+				</div>
+				<!-- Button trigger modal -->
+				<div class="btndiv">
+					<span>Hospital</span>
+				</div>
+			</a>
+		</div>
+	 </div>
+    <style>
+		.mapbtn {
+    		display: inline-block;
+			cursor: pointer;
+		}
+		.btndiv button {
+    		width: 100%;
+		}
+		.btndiv {
+			background: #005e9e;
+			color: #fff;
+			font-size: 22px;
+			text-align: center;
+			padding: 10px;
+			text-decoration: none;
+		}
+	</style>
+	
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -46,14 +115,81 @@ function dexpress_map_shortcode($atts, $content=null){
 	  <div class="modal-dialog">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="exampleModalLabel">School</h5>
+			<h5 class="modal-title" id="schoolModalLabel">School</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>
 		  <div class="modal-body">
 		   <div class="contact-location-map">
-			  <iframe style="border: 0;" src="https://maps.google.com/maps?q=Gulshan,+Dhaka/@23.8062764,90.3460622, School, 15z&amp;t=&amp;z=15&amp;output=embed" width="800px" height="500px" frameborder="0"></iframe>
+			  <iframe style="border: 0;" src="https://maps.google.com/maps?q=<?php echo $place; ?>,+Dhaka/@23.8062764,90.3460622, School, 15z&amp;t=&amp;z=15&amp;output=embed" width="800px" height="500px" frameborder="0"></iframe>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="restaurantsModal" tabindex="-1" aria-labelledby="restaurantsModal" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="restaurantsModalLabel">Restaurants</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+		   <div class="contact-location-map">
+			  <iframe style="border: 0;" src="https://maps.google.com/maps?q=<?php echo $place; ?>,+Dhaka/@23.8062764,90.3460622, Restaurants, 15z&amp;t=&amp;z=15&amp;output=embed" width="800px" height="500px" frameborder="0"></iframe>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="parkModal" tabindex="-1" aria-labelledby="parkModal" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="parkModalLabel">Park</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+		   <div class="contact-location-map">
+			  <iframe style="border: 0;" src="https://maps.google.com/maps?q=<?php echo $place; ?>,+Dhaka/@23.8062764,90.3460622, Park, 15z&amp;t=&amp;z=15&amp;output=embed" width="800px" height="500px" frameborder="0"></iframe>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="hospitalModal" tabindex="-1" aria-labelledby="hospitalModal" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="hospitalModalLabel">Hospital</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+		   <div class="contact-location-map">
+			  <iframe style="border: 0;" src="https://maps.google.com/maps?q=<?php echo $place; ?>,+Dhaka/@23.8062764,90.3460622, Hospital, 15z&amp;t=&amp;z=15&amp;output=embed" width="800px" height="500px" frameborder="0"></iframe>
 			</div>
 		  </div>
 		  <div class="modal-footer">
